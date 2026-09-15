@@ -1,375 +1,245 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>360手机刷机 - 全网唯一可用</title>
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-	<meta name="robots" content="noindex,nofollow,noarchive">
-    <meta name="keywords" content="360刷机工具, 手机刷机, 纯净系统, 解锁, Root, Twrp, IMEI修复">
-    <meta name="description" content="360刷机工具，支持刷机、纯净系统、解锁、Root、Twrp、IMEI串码修复等功能，专业可靠，21年维护至今。">
+    <title>360手机 - 免费刷机解锁工具-远程刷机</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/plyr.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <style>
-        .qr-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 18px 0;
-        }
-
-        .qr-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .qr-image {
-            display: block;
-            width: 220px;
-            height: 220px;
-        }
-
-        #changeCodeBtn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 2;
-            padding: 4px 12px;
-            font-size: 14px;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            opacity: 0.45;
-            transition: opacity 0.2s;
-        }
-
-        #changeCodeBtn:hover,
-        #changeCodeBtn:active,
-        #changeCodeBtn:focus {
-            opacity: 0.92;
-        }
-
-        @media (max-width: 768px) {
-            .tool-container.tool-stack {
-                flex-direction: column;
-            }
-
-            .tool-container.tool-stack .input-group,
-            .tool-container.tool-stack .button-group {
-                width: 100%;
-            }
-
-            .tool-container.tool-stack .button-group {
-                justify-content: center;
-            }
-        }
-    </style>
+    <meta name="msvalidate.01" content="70BC6B5D04598BEBB1D1B48187E57E53" />
+    <meta name="keywords" content="360手机, 远程协助, 手机刷机, 解锁, 救砖, 系统修复, 数据恢复, 位置修复, 手机Root, TWRP">
+    <meta name="description" content="提供360手机专业专业专业远程协助服务，包括刷机、解锁、救砖、系统修复、数据恢复及位置修复等，操作简单高效，成功率100%，专业技术团队支持。">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-
 <body>
     <header>
         <div class="container header-content">
             <div class="logo">
-                <i class="fa fa-android"></i>
-                <span>360PhoneWinTool</span>
+                <div class="logo-icon"><i class="fa fa-android"></i></div>
+                <span>360手机·远程刷机</span>
+            </div>
+            <div class="header-actions">
+                <nav>
+                    <ul>
+                        <li><a href="#features">服务项目</a></li>
+                        <li><a href="#process">刷机流程</a></li>
+                        <li><a href="#connection">远程协助</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </nav>
+                <button class="contact-btn" id="contactBtn"><i class="fa fa-user"></i> 在线客服</button>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <!-- 公告区域 -->
-        <section class="announcement">
-            <h2>公告</h2>
-            <input type="hidden" id="announcementScroll" value="">
-             <div class="urgent-notice">
-                <strong style="color: red;">最后更新：<span id="updateTime"></span></strong>
-            </div>
-            <div class="announcement-list">
-                <div class="announcement-item" id="announcement1">
-                    1.2021-至今；全网唯一可用</br>
-                    2.因恶意滥用，优先：捐赠者</br>
-                </div>
-            </div>
-        </section>
-
- <!-- 工具区域 -->
-        <section class="section">
-            <h2>刷机资源</h2>
-            <!-- data-expanded 支持：设置为 "true" 将初始展开，"false" 为初始收起；若不设置，保持原有行为 -->
-           <!-- <button class="collapsible" id="Collapsible3" data-expanded="true">
-                刷机工具
-                <i class="fa fa-chevron-down"></i>
-            </button>
-            <div class="content">
-                <div class="tool-container tool-stack">
-                    <div class="input-group">
-                        <input type="text" id="toolNote" value="免注册，直下载" placeholder="刷机工具" readonly>
-                    </div>
-                    <div class="button-group">
-                        <a href=""
-                            class="btn btn-green" id="toolDownload" aria-label="直接下载刷机工具">
-                            <i class="fa fa-download"></i> 下载
-                        </a>
-                    </div>
-                </div>
-                
-            </div> -->
-
-            <button class="collapsible" id="Collapsible4" data-expanded="true">
-                刷机包
-                <i class="fa fa-chevron-down"></i>
-            </button>
-            <div class="content">
-                <div class="tool-container">
-                    <div class="input-group">
-                        <input type="text" id="cloudLink"
-                            value="https://pan.xunlei.com/s/VORRS6Nv19u6ucrc0_OVvx8DA1?pwd=m8ef" placeholder="云盘链接"
-                            readonly>
-                    </div>
-                    <div class="input-group extract-code">
-                        <input type="text" id="extractCode" value="提取码：m8ef" placeholder="提取码" readonly>
-                    </div>
-                    <div class="button-group">
-                        <a href="javascript:;" class="btn btn-secondary" id="openLink" aria-label="打开">
-                            <i class="fa fa-window-restore"></i> 打开
-                        </a>
-                        <a href="javascript:;" class="btn btn-secondary" id="copyLink" aria-label="复制">
-                            <i class="fa fa-copy"></i> 复制
-                        </a>
-                        <a href="https://www.360os.top/src/webmp4/index.html" target="_blank" class="btn btn-secondary"
-                            aria-label="视频">
-                            <i class="fa fa-window-restore"></i> 刷机视频
-                        </a>
-                        <a href="javascript:;" class="btn btn-secondary" id="toolShowInfo" aria-label="说明">
-                            <i class="fa fa-info-circle"></i> 说明
-                        </a>
-                    </div>
-                </div>
-                </div>
-
-                <!-- 服务器状态模块 -->
-                <div class="server-status" id="serverStatusModule" aria-live="polite">
-                    <input type="hidden" id="serverUrl" value="https://360os.top">
-                    <div class="status-line">
-                        <span class="status-label">服务器状态</span>
-                        <button class="btn btn-secondary" id="refreshServerStatus" aria-label="刷新服务器状态">
-                            <i class="fa fa-refresh"></i> 刷新
-                        </button>
-                    </div>
-                    <div class="status-box" id="serverStatusBox">检测中...</div>
-                </div>
-
-                 <div class="hint">转存下载，速度快</div>
-        </section>
-
-        <!-- 密码区域 -->
-        <section class="section">
-            <h2>工具/密码</h2>
-
-            <!--  <div class="qr-center">
-                <div class="qr-container">
-                    <img src="pic/fk.png" alt="在线密钥" class="qr-image" id="qrImage">
-                    <button id="changeCodeBtn">微码</button>
-                </div>
-            </div>-->
-
-            <div class="button-center">
-                <a href="https://wzyp.cn/shop/EMSDA9S1/olon3p" target="_blank" class="btn btn-green"
-                    id="getPasswordPay" aria-label="密码获取">
-                    <i class="fa fa-bolt"></i>主密码
-                </a>
-
-                <a href="https://www.kdocs.cn/l/cjoiPfvOmvgY" target="_blank"class="btn btn-secondary"  aria-label="帮助">
-                    <i class="fa fa-info-circle"></i> 帮助
-                </a>
-            </div>
-
-            <div class="hint">自行=选择+获取</div>
-
-            <!-- 为使用说明按钮设定可通过 data-expanded 控制的默认值 
-            <button class="collapsible" id="Collapsible1" data-expanded="false">
-                使用说明
-                <i class="fa fa-chevron-down"></i>
-            </button>
-            <div class="content">
-                <ul style="margin: 15px; line-height: 1.8; list-style-position: inside;">
-                    <li>将获取的密码，输入 对应密码框</li>
-                </ul>
-            </div>-->
-              <!--<button class="collapsible" id="Collapsible2">
-                密码解释
-                <i class="fa fa-chevron-down"></i>
-            </button>
-           <div class="content">
-                <table class="password-table">
-                    <tr>
-                        <th>密码类型</th>
-                        <th>作用</th>
-                        <th>备注</th>
-                    </tr>
-                    <tr>
-                        <td>解压码</td>
-                        <td>解压文件</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>使用码</td>
-                        <td>解压软件</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>授权码</td>
-                        <td>打开使用软件</td>
-                        <td>本次使用</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" style="text-align: left;">
-                            注：密码类型，非全部使用，仅作说明
-                        </td>
-                    </tr>
-                </table>
-            </div>-->
-        </section>
-       
-        <!-- 帮助区域 -->
-        <section class="section">
-            <h2>帮助/回复</h2>
-            <div class="help-text">
-                <strong>官网：</strong><a href="https://360os.top" class="link" target="_blank"
-                    rel="noopener noreferrer">360os.top</a> </br>
-                  
-
-            </div>
-
-            <div class="divider"></div>
-            <div class="help-text">
-                <strong>支持：</strong>刷机、解锁、救砖、Root、Twrp、IMEI、位置穿越等</br>
-            </div>
-
-            <!-- <a href="javascript:;" class="btn btn-secondary" id="humanService" aria-label="客服">
-                <i class="fa fa-user"></i> 微信
-            </a>-->
-          
-            <a href="https://sunlogin.oray.com/download?categ=personal" target="_blank" rel="noopener noreferrer"
-                class="btn btn-secondary" id="remoteHelp" aria-label="向日葵远程">
-                <i class="fa fa-desktop"></i> 远程
-            </a>
-        </section>
-    </main>
-
-    <!-- 页脚 -->
-    <footer>
+    <section class="hero">
         <div class="container">
-            <p>仅供学习，请下载后24h删除</p>
+            <h2>100%成功率 全网唯一</h2>
+            <h1>360手机<span>远程协助</span></h1>
+            <p>刷机、解锁、救砖、纯净系统、Root、Twrp</p>
+            <div class="btn-group">
+                <a href="#connection" class="btn btn-primary"><i class="fa fa-mouse-pointer"></i> 远程协助</a>
+                <a href="https://sunlogin.oray.com/download?categ=personal" target="_blank" class="btn btn-secondary"><i class="fa fa-laptop"></i> 向日葵远程</a>
+            </div>
         </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title"><h2>服务内容</h2></div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa fa-refresh"></i></div>
+                    <h3>刷机/解锁</h3>
+                    <p>解决99%问题；纯净版：无任何广告</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa fa-map-marker"></i></div>
+                    <h3>位置修复</h3>
+                    <p>打卡/定位</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa fa-mobile"></i></div>
+                    <h3>更多</h3>
+                    <p>不限速下载、Root、Twr、Magisk</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flash-process" id="process">
+        <div class="container">
+            <div class="section-title"><h2>刷机流程</h2></div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-progress">
+                        <svg width="50" height="50">
+                            <circle cx="25" cy="25" r="22" class="circle-bg"/>
+                            <circle cx="25" cy="25" r="22" class="circle-active" style="stroke-dashoffset: 110.56;"/>
+                        </svg>
+                        <span class="step-progress-label">1</span>
+                    </div>
+                    <h3>备份数据</h3>
+                </div>
+                <div class="step">
+                    <div class="step-progress">
+                        <svg width="50" height="50">
+                            <circle cx="25" cy="25" r="22" class="circle-bg"/>
+                            <circle cx="25" cy="25" r="22" class="circle-active" style="stroke-dashoffset: 82.92;"/>
+                        </svg>
+                        <span class="step-progress-label">2</span>
+                    </div>
+                    <h3>电脑远程</h3>
+                </div>
+                <div class="step">
+                    <div class="step-progress">
+                        <svg width="50" height="50">
+                            <circle cx="25" cy="25" r="22" class="circle-bg"/>
+                            <circle cx="25" cy="25" r="22" class="circle-active" style="stroke-dashoffset: 55.28;"/>
+                        </svg>
+                        <span class="step-progress-label">3</span>
+                    </div>
+                    <h3>连接设备</h3>
+                </div>
+                <div class="step">
+                    <div class="step-progress">
+                        <svg width="50" height="50">
+                            <circle cx="25" cy="25" r="22" class="circle-bg"/>
+                            <circle cx="25" cy="25" r="22" class="circle-active" style="stroke-dashoffset: 27.64;"/>
+                        </svg>
+                        <span class="step-progress-label">4</span>
+                    </div>
+                    <h3>开始刷机</h3>
+                </div>
+                <div class="step">
+                    <div class="step-progress">
+                        <svg width="50" height="50">
+                            <circle cx="25" cy="25" r="22" class="circle-bg"/>
+                            <circle cx="25" cy="25" r="22" class="circle-active" style="stroke-dashoffset: 0;"/>
+                        </svg>
+                        <span class="step-progress-label">5</span>
+                    </div>
+                    <h3>完成</h3>
+                </div>
+            </div>
+            <div class="text-center mt-30">
+                <button class="btn btn-primary" id="downloadToolBtn"><i class="fa fa-download"></i> 下载刷机工具</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="connection-remote" id="connection">
+        <div class="container">
+            <div class="connection-remote-container">
+                <div class="connection-section">
+                    <h3 class="section-subtitle">在线刷机</h3>
+                    <div class="video-container">
+                        <video id="player" playsinline controls>
+                            <source src="https://workdrive.zohopublic.com.cn/external/70319fd653793d8cc0a6541d24f2090c73a66034ebfee2f859156738d37abfa0/download?directDownload=true" type="video/mp4"/>
+                        </video>
+                    </div>
+                    <div class="status-badge">
+                        <i class="fa fa-check-circle"></i> 原厂模式，官方刷机，极速适配，完美解决
+                    </div>
+                </div>
+
+                <div class="remote-section">
+                    <h3 class="section-subtitle">
+                        远程服务
+                        <button class="btn btn-secondary btn-sm" id="onlineReserveBtn">联系我</button>
+                    </h3>
+                    <div class="remote-option">
+                        <h4><span>指导解答</span><span class="price">¥9起</span></h4>
+                        <p>提供各种基础内容</p>
+                        <a href="https://wzyp.cn/shop/EMSDA9S1/w7fqxv" target="_blank" class="btn btn-primary btn-full">选购</a>
+                    </div>
+                    <div class="remote-option">
+                        <h4><span>远程服务</span><span class="price">¥36起</span></h4>
+                        <p>电脑远程·极速响应</p>
+                        <a href="https://wzyp.cn/shop/EMSDA9S1/w7fqxv" target="_blank" class="btn btn-primary btn-full">选购</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title"><h2>常见问题</h2></div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">远程时间、成功率？</div>
+                    <div class="faq-answer"><p>10-30分钟；支持批量刷机；100%成功率</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">比我操作，有啥优势？</div>
+                    <div class="faq-answer"><p>省时间和折腾，快速、成功率高、效率快，解决问题影响</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">远程协助，我要准备什么？</div>
+                    <div class="faq-answer"><p>可上网的电脑；原装USB数据线</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">可保资料（如：照片）刷机/解锁吗？</div>
+                    <div class="faq-answer"><p>支持</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">不成功，支持退款吗？</div>
+                    <div class="faq-answer"><p>支持</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">向日葵远程操作说明</div>
+                    <div class="faq-answer">
+                        <div class="text-center">
+                            <img src="img/SunloginClient.png" alt="向日葵远程操作说明" class="img-fluid faq-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom"><p>刷机服务，质保一年 无限刷机</p></div>
+        <div class="footer-bottom"><p>支持机型：360n4 360n4s 360n4s骁龙版 360n5s 360n5S 360n6 360N6lite 360n6pro 360n7 360n7lite 360n7pro 360q5 360q5plus</p></div>
     </footer>
 
-   <!-- 公众号二维码显示区域 -->
-<div class="wechat-qr-container" id="wechatQrContainer">
-    <div class="wechat-qr-content">
-        <img src="pic/wx-gzh.png" alt="微信公众号" class="wechat-qr-image">
-        <div class="wechat-qr-text">微信公众号</div>
-    </div>
-</div>
-
-<!-- 二维码按钮 -->
-<div class="float-button" id="qrButton">
-    <button class="float-btn" id="qrCodeBtn" aria-label="公众号二维码" tabindex="0" aria-expanded="false">
-        <i class="fa fa-qrcode"></i>
-    </button>
-    <div class="float-content">
-        <span class="float-text">微信公众号</span>
-    </div>
-</div>
-
-<!-- 置顶按钮 -->
-<div class="float-button" id="topButton">
-    <button class="float-btn" id="backToTop" aria-label="返回顶部" tabindex="0" aria-expanded="false">
-        <i class="fa fa-angle-up"></i>
-    </button>
-    <div class="float-content">
-        <span class="float-text">返回顶部</span>
-    </div>
-</div>
-
-    <!-- 说明模态框 -->
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeInfoModal">&times;</span>
-            <p style="text-align: center; font-weight: bold;">21年~至今（100%可用）</p>
-            <h3>工具</h3>
-            <div class="modal-body">
-                <p>1. 请勿滥用</p>
-                <p>2. 请详阅，相关文本，说明帮助</p>
-                <p>3. 请尽量在，正版windows系统上使用</p>
+    <div class="modal-overlay" id="wxCodeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">付费咨询</h3>
+                <button class="modal-close close-btn">&times;</button>
             </div>
-            <h3>咨询</h3>
-            <div class="modal-body">
-			<p>1. 优先捐赠者</p>
-                <p>2. 不会弄，请考虑远程协助</p>
-            </div>
-            <h3>密码</h3>
-            <div class="modal-body">
-                <p>多种渠道，自行获取</p>
+            <div class="modal-body text-center">
+                <img src="img/wx-code.png" alt="微信二维码" class="qr-code">
+                <div class="hint-text">微信扫码-人工支持</div>
             </div>
         </div>
     </div>
 
-        <!-- 人工客服模态框 -->
-    <div id="serviceModal" class="modal">
-        <div class="modal-content" style="width: 360px; max-width: 90%; padding: 20px 18px;">
-            <span class="close" id="closeServiceModal">&times;</span>
-            <div class="modal-body" style="text-align: center;">
-                <img src="pic/wx1.png" alt="二维码" style="max-width: 280px; margin: 10px auto; height: auto;">
-                <p style="margin-top: 15px; font-weight: bold; color: red;">因恶意咨询/打扰，微信：人机验证</p>
-                <p style="font-size: 14px; font-weight: bold; color: rgb(80, 80, 80);">仅回复：≥3捐赠者(含购） 微信邮箱 os@360os.top</p>
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">资源下载</h3>
+                <button class="modal-close close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="download-item">
+                    <div>Windows 手机驱动</div>
+                    <a href="https://wwr.lanzouw.com/iKoFJ2fdc2id" target="_blank" class="btn btn-primary btn-xs">下载</a>
+                </div>
+                <div class="alert-info">
+                    <p><strong>注：</strong>确保手机电量充足</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-btn">关闭</button>
             </div>
         </div>
     </div>
 
+    <script src="js/plyr.min.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        // 换码按钮切换二维码图片（修复语法并避免页面内报错）
-        (function () {
-            var btn = document.getElementById('changeCodeBtn');
-            var img = document.getElementById('qrImage');
-            if (!btn || !img) return;
-            var img1 = 'pic/fk.png';
-            var img2 = 'pic/wx1.png';
-            var showing1 = true;
-            btn.addEventListener('click', function () {
-                img.src = showing1 ? img2 : img1;
-                showing1 = !showing1;
-            });
-        })();
-
-        // 页面加载完成后执行
-        window.addEventListener('DOMContentLoaded', setUpdateTime);
-
-        // 动态设置更新时间
-
-        function setUpdateTime() {
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = now.getMonth() + 1;
-            const day = now.getDate();
-            // 显示年份、月份和日期
-            const updateTimeStr = `${year}年${month}月`;
-
-            const updateTimeElement = document.getElementById('updateTime');
-            if (updateTimeElement) {
-                updateTimeElement.textContent = updateTimeStr;
-            }
-        }
-
-        // 立即执行函数
-        setUpdateTime();
-    </script>
-
-
 </body>
-
 </html>
